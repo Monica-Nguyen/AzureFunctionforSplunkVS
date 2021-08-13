@@ -36,7 +36,7 @@ namespace AzureFunctionForSplunk
         [FunctionName("dgpoceventhub")]
         public static async Task Run(
             [EventHubTrigger("%dgpoceventhublogs%", Connection = "hubConnection", ConsumerGroup = "%consumer-group-diagnostic-logs%")]string[] messages,
-            [EventHub("%output-hub-name-proxy%", Connection = "outputHubConnection")]IAsyncCollector<string> outputEvents,
+            [EventHub("%dgpoceventhub%", Connection = "outputHubConnection")]IAsyncCollector<string> outputEvents,
             IBinder blobFaultBinder,
             IBinder incomingBatchBinder,
             Binder queueFaultBinder,
