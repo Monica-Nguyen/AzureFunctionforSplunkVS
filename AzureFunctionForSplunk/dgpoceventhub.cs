@@ -31,11 +31,11 @@ using Microsoft.Extensions.Logging;
 
 namespace AzureFunctionForSplunk
 {
-    public static class EhDiagnosticLogsExt
+    public static class dgpoceventhub
     {
-        [FunctionName("EhDiagnosticLogsExt")]
+        [FunctionName("dgpoceventhub")]
         public static async Task Run(
-            [EventHubTrigger("%input-hub-name-diagnostics-logs%", Connection = "hubConnection", ConsumerGroup = "%consumer-group-diagnostic-logs%")]string[] messages,
+            [EventHubTrigger("%dgpoceventhub-diagnostics-logs%", Connection = "hubConnection", ConsumerGroup = "%consumer-group-diagnostic-logs%")]string[] messages,
             [EventHub("%output-hub-name-proxy%", Connection = "outputHubConnection")]IAsyncCollector<string> outputEvents,
             IBinder blobFaultBinder,
             IBinder incomingBatchBinder,
